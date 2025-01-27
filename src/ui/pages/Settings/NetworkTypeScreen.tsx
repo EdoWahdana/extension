@@ -27,7 +27,7 @@ export default function NetworkTypeScreen() {
               <Card
                 key={index}
                 onClick={async () => {
-                  if(item.disable) {
+                  if (item.disable) {
                     return tools.toastError('This network is not available');
                   }
                   if (item.enum == chainType) {
@@ -37,11 +37,12 @@ export default function NetworkTypeScreen() {
                   reloadAccounts();
                   navigate('MainScreen');
                   tools.toastSuccess(`Changed to ${item.label}`);
-                }}>
+                }}
+              >
                 <Row full justifyBetween itemsCenter>
                   <Row itemsCenter>
                     <Image src={item.icon} size={30} style={{ opacity: item.disable ? 0.7 : 1 }} />
-                    <Text text={item.label} preset="regular-bold" color={item.disable ? 'textDim' : 'text'}/>
+                    <Text text={item.label} preset="regular-bold" color={item.disable ? 'textDim' : 'text'} />
                   </Row>
                   <Column>{item.enum == chainType && <Icon icon="check" />}</Column>
                 </Row>

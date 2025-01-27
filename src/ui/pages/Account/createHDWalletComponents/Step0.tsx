@@ -1,10 +1,10 @@
-import { ContextData, TabType, UpdateContextDataParams } from '@/ui/pages/Account/createHDWalletComponents/types';
-import { Button, Column, Text } from '@/ui/components';
 import { RESTORE_WALLETS } from '@/shared/constant';
+import { Button, Column, Text } from '@/ui/components';
+import { ContextData, TabType, UpdateContextDataParams } from '@/ui/pages/Account/createHDWalletComponents/types';
 
 export function Step0({
-                 updateContextData
-               }: {
+  updateContextData
+}: {
   contextData: ContextData;
   updateContextData: (params: UpdateContextDataParams) => void;
 }) {
@@ -18,7 +18,8 @@ export function Step0({
             preset="default"
             onClick={() => {
               updateContextData({ tabType: TabType.STEP2, restoreWalletType: item.value });
-            }}>
+            }}
+          >
             <Text text={item.name} />
           </Button>
         );

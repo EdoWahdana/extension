@@ -16,10 +16,11 @@ export function RBFBar({ defaultValue, onChange }: { defaultValue?: boolean; onC
   return (
     <Row justifyBetween>
       <Tooltip
-        title={`A feature allows the transaction to be replaced.`}
+        title={'A feature allows the transaction to be replaced.'}
         overlayStyle={{
           fontSize: fontSizes.xs
-        }}>
+        }}
+      >
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <Row itemsCenter>
             <Text text="RBF" />
@@ -31,7 +32,8 @@ export function RBFBar({ defaultValue, onChange }: { defaultValue?: boolean; onC
         onChange={() => {
           setEnableRBF(!enableRBF);
         }}
-        checked={enableRBF}></Checkbox>
+        checked={enableRBF}
+      ></Checkbox>
     </Row>
   );
 }

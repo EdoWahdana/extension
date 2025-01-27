@@ -41,7 +41,8 @@ export const NoticePopover = ({ onClose }: { onClose: () => void }) => {
               checked={checked1}
               onChange={(e) => {
                 setChecked1(e.target.checked);
-              }}>
+              }}
+            >
               <div style={{ fontSize: fontSizes.sm }}>
                 for Ordinals assets, <span style={{ color: '#EBB94C' }}>Rare sats </span>are not supported.
               </div>

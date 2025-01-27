@@ -31,7 +31,9 @@ export function EnableSignDataCard() {
           <Text
             preset="sub"
             size="sm"
-            text={`If you enable this setting, you might get signature requests that aren't readable. By signing a message you don't understand, you could be agreeing to give away your funds and NFTs.You're at risk for phishing attacks. Protect yourself by turning off signData.`}
+            text={
+              "If you enable this setting, you might get signature requests that aren't readable. By signing a message you don't understand, you could be agreeing to give away your funds and NFTs.You're at risk for phishing attacks. Protect yourself by turning off signData."
+            }
           />
         </Row>
 
@@ -50,7 +52,8 @@ export function EnableSignDataCard() {
                 setEnableSignDataPopoverVisible(true);
               }
             }}
-            checked={enableSignData}></Switch>
+            checked={enableSignData}
+          ></Switch>
         </Row>
       </Column>
       {enableSignDataPopoverVisible ? (
@@ -101,7 +104,8 @@ function EnableSignDataPopover({ onNext, onCancel }: { onNext: () => void; onCan
                   onChange={() => {
                     setUnderstand(!understand);
                   }}
-                  checked={understand}></Checkbox>
+                  checked={understand}
+                ></Checkbox>
                 <Text text={'I understand that I can lose all of my funds and NFTs if I enable signData requests.'} />
               </Row>
             </Row>

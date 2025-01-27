@@ -1,6 +1,5 @@
 import { AddressType, RestoreWalletType } from '@/shared/types';
 
-
 export enum TabType {
   STEP1 = 'STEP1',
   STEP2 = 'STEP2',

@@ -49,7 +49,8 @@ export function NoMergeLayout({
               borderRadius: 10,
               borderColor: '#F4B62C59',
               backgroundColor: 'rgba(244, 182, 44, 0.08)'
-            }}>
+            }}
+          >
             <Column mx="md" my="md">
               <Text text={'You need at least 2 UTXOs to merge'} size="xs" color="warning_content" />
             </Column>

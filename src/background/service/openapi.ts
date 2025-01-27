@@ -50,6 +50,7 @@ export class OpenApiService {
   endpoints: string[] = [];
   endpoint = '';
   config: WalletConfig | null = null;
+  glittrApi?: string;
 
   setEndpoints = async (endpoints: string[]) => {
     this.endpoints = endpoints;
@@ -67,6 +68,10 @@ export class OpenApiService {
     const chainType = preferenceService.getChainType();
     const chain = CHAINS_MAP[chainType];
     this.endpoint = chain.endpoints[0];
+
+    if (chain.glittrApi) {
+      this.glittrApi = chain.glittrApi;
+    }
 
     if (!this.store.deviceId) {
       this.store.deviceId = randomstring.generate(12);
@@ -103,6 +108,27 @@ export class OpenApiService {
       throw new Error(jsonRes.msg);
     }
     return jsonRes.data;
+  };
+
+  httpGlittrGet = async (route: string) => {
+    const url = this.glittrApi + route;
+
+    const headers = new Headers();
+    headers.append('X-Client', 'UniSat Wallet');
+    headers.append('X-Version', VERSION);
+    headers.append('x-address', this.clientAddress);
+    headers.append('x-flag', this.addressFlag + '');
+    headers.append('x-channel', CHANNEL);
+    headers.append('x-udid', this.store.deviceId);
+    headers.append('Authorization', '1c4938fb-1a10-48c2-82eb-bd34eeb05b20'); // TODO change this
+    let res: Response;
+    try {
+      res = await fetch(new Request(url), { method: 'GET', headers, mode: 'cors', cache: 'default' });
+    } catch (e: any) {
+      throw new Error('Network error: ' + e && e.message);
+    }
+
+    return this.getRespData(res);
   };
 
   httpGet = async (route: string, params: any) => {
@@ -626,7 +652,7 @@ export class OpenApiService {
   }
 
   async transferCAT20Step1(address: string, pubkey: string, to: string, tokenId: string, amount: string, feeRate) {
-    return this.httpPost(`/v5/cat20/transfer-token-step1`, {
+    return this.httpPost('/v5/cat20/transfer-token-step1', {
       address,
       pubkey,
       to,
@@ -637,27 +663,27 @@ export class OpenApiService {
   }
 
   async transferCAT20Step2(transferId: string, signedPsbt: string) {
-    return this.httpPost(`/v5/cat20/transfer-token-step2`, {
+    return this.httpPost('/v5/cat20/transfer-token-step2', {
       id: transferId,
       psbt: signedPsbt
     });
   }
 
   async transferCAT20Step3(transferId: string, signedPsbt: string) {
-    return this.httpPost(`/v5/cat20/transfer-token-step3`, {
+    return this.httpPost('/v5/cat20/transfer-token-step3', {
       id: transferId,
       psbt: signedPsbt
     });
   }
 
   async transferCAT20Step1ByMerge(mergeId: string) {
-    return this.httpPost(`/v5/cat20/transfer-token-step1-by-merge`, {
+    return this.httpPost('/v5/cat20/transfer-token-step1-by-merge', {
       mergeId
     });
   }
 
   async mergeCAT20Prepare(address: string, pubkey: string, tokenId: string, utxoCount: number, feeRate: number) {
-    return this.httpPost(`/v5/cat20/merge-token-prepare`, {
+    return this.httpPost('/v5/cat20/merge-token-prepare', {
       address,
       pubkey,
       tokenId,
@@ -667,7 +693,7 @@ export class OpenApiService {
   }
 
   async getMergeCAT20Status(mergeId: string) {
-    return this.httpPost(`/v5/cat20/merge-token-status`, {
+    return this.httpPost('/v5/cat20/merge-token-status', {
       id: mergeId
     });
   }
@@ -692,7 +718,7 @@ export class OpenApiService {
     localId: string,
     feeRate: number
   ) {
-    return this.httpPost(`/v5/cat721/transfer-nft-step1`, {
+    return this.httpPost('/v5/cat721/transfer-nft-step1', {
       address,
       pubkey,
       to,
@@ -703,17 +729,21 @@ export class OpenApiService {
   }
 
   async transferCAT721Step2(transferId: string, signedPsbt: string) {
-    return this.httpPost(`/v5/cat721/transfer-nft-step2`, {
+    return this.httpPost('/v5/cat721/transfer-nft-step2', {
       id: transferId,
       psbt: signedPsbt
     });
   }
 
   async transferCAT721Step3(transferId: string, signedPsbt: string) {
-    return this.httpPost(`/v5/cat721/transfer-nft-step3`, {
+    return this.httpPost('/v5/cat721/transfer-nft-step3', {
       id: transferId,
       psbt: signedPsbt
     });
+  }
+
+  async getGlittrAssetList(address: string) {
+    return this.httpGlittrGet(`/helper/address/${address}/balance`);
   }
 }
 

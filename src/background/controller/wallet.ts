@@ -1875,6 +1875,15 @@ export class WalletController extends BaseController {
     };
   };
 
+  getGlittrAssetList = async (address: string) => {
+    const balanceData = await openapiService.getGlittrAssetList(address);
+    if (!balanceData?.balance?.utxos) {
+      throw new Error('Invalid balance data format');
+    }
+
+    return balanceData;
+  };
+
   getAssetUtxosRunes = async (runeid: string) => {
     const account = preferenceService.getCurrentAccount();
     if (!account) throw new Error('no current account');

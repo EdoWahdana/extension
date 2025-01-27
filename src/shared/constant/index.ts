@@ -238,6 +238,7 @@ type TypeChain = {
   isFractal?: boolean;
   showPrice: boolean;
   defaultExplorer: 'mempool-space' | 'unisat-explorer';
+  glittrApi?: string;
 };
 
 export const CHAINS_MAP: { [key: string]: TypeChain } = {
@@ -287,7 +288,8 @@ export const CHAINS_MAP: { [key: string]: TypeChain } = {
     unisatExplorerUrl: '',
     okxExplorerUrl: '',
     showPrice: false,
-    defaultExplorer: 'mempool-space'
+    defaultExplorer: 'mempool-space',
+    glittrApi: 'https://testnet-core-api.glittr.fi'
   },
   [ChainType.BITCOIN_SIGNET]: {
     enum: ChainType.BITCOIN_SIGNET,

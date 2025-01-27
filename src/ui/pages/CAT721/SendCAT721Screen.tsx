@@ -198,7 +198,7 @@ export default function SendCAT721Screen() {
         onBack={() => {
           window.history.go(-1);
         }}
-        title={`Send CAT721`}
+        title={'Send CAT721'}
       />
       <Content>
         <Text text={collectionInfo.name} preset="title-bold" textCenter size="xxl" color="gold" />
@@ -242,7 +242,8 @@ export default function SendCAT721Screen() {
           text="Next"
           onClick={(e) => {
             onConfirm();
-          }}></Button>
+          }}
+        ></Button>
 
         {showMergeBTCUTXOPopover && (
           <MergeBTCPopover

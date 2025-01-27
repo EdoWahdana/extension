@@ -40,6 +40,7 @@ import { useNavigate } from '../../MainRoute';
 import { SwitchChainModal } from '../../Settings/SwitchChainModal';
 import { AtomicalsTab } from './AtomicalsTab';
 import { CATTab } from './CATTab';
+import { GlittrList } from './GlittrList';
 import { OrdinalsTab } from './OrdinalsTab';
 import { RunesList } from './RunesList';
 
@@ -138,7 +139,7 @@ export default function WalletTabScreen() {
     if (supportedAssets.assets.runes) {
       items.push({
         key: AssetTabKey.RUNES,
-        label: 'Runes',
+        label: 'Runesed',
         children: <RunesList />
       });
     }
@@ -147,6 +148,13 @@ export default function WalletTabScreen() {
         key: AssetTabKey.CAT,
         label: 'CAT',
         children: <CATTab />
+      });
+    }
+    if (supportedAssets.assets.glittr) {
+      items.push({
+        key: AssetTabKey.GLITTR,
+        label: 'Glittr',
+        children: <GlittrList />
       });
     }
     return items;
@@ -177,7 +185,8 @@ export default function WalletTabScreen() {
             style={{ height: 28 }}
             onClick={() => {
               navigate('SwitchKeyringScreen');
-            }}>
+            }}
+          >
             <Text text={currentKeyring.alianName} size="xxs" />
           </Card>
         }
@@ -202,7 +211,8 @@ export default function WalletTabScreen() {
                 borderRadius: 12,
                 border: '1px solid rgba(245, 84, 84, 0.35)',
                 background: 'rgba(245, 84, 84, 0.08)'
-              }}>
+              }}
+            >
               {walletConfig.chainTip && <Text text={walletConfig.chainTip} color="text" textCenter />}
               {walletConfig.statusMessage && <Text text={walletConfig.statusMessage} color="danger" textCenter />}
               {addressTips.homeTip && <Text text={addressTips.homeTip} color="warning" textCenter />}
@@ -229,7 +239,8 @@ export default function WalletTabScreen() {
             }
             overlayStyle={{
               fontSize: fontSizes.xs
-            }}>
+            }}
+          >
             <div>
               <Text text={'TOTAL BALANCE'} textCenter color="textDim" />
               <BtcDisplay balance={balanceValue} />
@@ -245,7 +256,7 @@ export default function WalletTabScreen() {
               marginBottom: -8
             }}
           />
-          {/* 
+          {/*
           <Column
             py={'lg'}
             px={'md'}

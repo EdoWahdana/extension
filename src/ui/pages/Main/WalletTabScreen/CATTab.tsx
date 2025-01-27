@@ -18,12 +18,12 @@ export function CATTab() {
     const items = [
       {
         key: CATAssetTabKey.CAT20,
-        label: `CAT20`,
+        label: 'CAT20',
         children: <CAT20List />
       },
       {
         key: CATAssetTabKey.CAT721,
-        label: `CAT721`,
+        label: 'CAT721',
         children: <CAT721List />
       }
     ];

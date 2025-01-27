@@ -211,7 +211,8 @@ export default function RunesTokenScreen() {
               copyToClipboard(tokenSummary.runeInfo.spacedRune).then(() => {
                 tools.toastSuccess('Copied');
               });
-            }}></Text>
+            }}
+          ></Text>
           {tokenSummary.runeLogo ? (
             <Row>
               <InscriptionPreview data={tokenSummary.runeLogo} preset="small" asLogo />
@@ -225,7 +226,8 @@ export default function RunesTokenScreen() {
             style={{
               backgroundColor: 'rgba(255,255,255,0.08)',
               borderRadius: 15
-            }}>
+            }}
+          >
             <Section title="runeid" value={tokenSummary.runeInfo.runeid} />
             <Line />
             <Section title="mints" value={showLongNumber(tokenSummary.runeInfo.mints)} />

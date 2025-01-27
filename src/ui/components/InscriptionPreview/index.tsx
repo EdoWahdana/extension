@@ -133,7 +133,8 @@ export default function InscriptionPreview({
     <Column
       gap="zero"
       onClick={onClick}
-      style={Object.assign({ position: 'relative' }, $containerPresets[preset], $viewStyleOverride)}>
+      style={Object.assign({ position: 'relative' }, $containerPresets[preset], $viewStyleOverride)}
+    >
       <Iframe preview={preview} style={$iframePresets[preset]} />
       {data.outputValue && !hideValue ? (
         <div style={Object.assign({ position: 'absolute' }, $iframePresets[preset])}>
@@ -144,7 +145,8 @@ export default function InscriptionPreview({
                 title={`The UTXO containing this inscription has ${data.outputValue} sats`}
                 overlayStyle={{
                   fontSize: fontSizes.xs
-                }}>
+                }}
+              >
                 <div>
                   <Text
                     text={valueText}
@@ -173,7 +175,8 @@ export default function InscriptionPreview({
         style={{
           borderBottomRightRadius: 8,
           borderBottomLeftRadius: 8
-        }}>
+        }}
+      >
         <Text text={numberStr} color="gold" size={$numberPresets[preset] as any} max1Lines />
         {isUnconfirmed == false && data.timestamp && (
           <Text text={time} preset="sub" size={$timePresets[preset] as any} />

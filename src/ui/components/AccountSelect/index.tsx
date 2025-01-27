@@ -24,7 +24,8 @@ const AccountSelect = () => {
       itemsCenter
       style={{
         borderRadius: 8
-      }}>
+      }}
+    >
       <Row style={{ flex: 1 }}>
         <Icon size={15} icon="user" style={{ marginLeft: 10 }} />
       </Row>
@@ -40,7 +41,8 @@ const AccountSelect = () => {
           copyToClipboard(address).then(() => {
             tools.toastSuccess('Copied');
           });
-        }}>
+        }}
+      >
         <Text text={shortAddress(currentAccount?.alianName, 8)} textCenter />
         <Row selfItemsCenter itemsCenter>
           <Text text={shortAddress(address)} color="textDim" />
@@ -56,7 +58,8 @@ const AccountSelect = () => {
         itemsCenter
         onClick={(e) => {
           navigate('SwitchAccountScreen');
-        }}>
+        }}
+      >
         <Icon size={15} icon="right" style={{ marginRight: 10 }} />
       </Row>
     </Row>

@@ -55,7 +55,8 @@ export function MyItem({ account, autoNav }: MyItemProps, ref) {
         backgroundColor: selected ? 'rgba(244,182,44,0.1)' : colors.black_dark,
         marginLeft: 10,
         marginRight: 10
-      }}>
+      }}
+    >
       <Row>
         <Column style={{ width: 20 }} selfItemsCenter>
           {selected ? <Icon icon="circle-check" color="gold" /> : <Icon icon="circle-check" color="white_muted2" />}
@@ -68,7 +69,8 @@ export function MyItem({ account, autoNav }: MyItemProps, ref) {
               dispatch(accountActions.setCurrent(_currentAccount));
             }
             if (autoNav) navigate('MainScreen');
-          }}>
+          }}
+        >
           <Text text={account.alianName} />
           <Text text={`${shortAddress(account.address)}${path}`} preset="sub" />
         </Column>
@@ -89,13 +91,15 @@ export function MyItem({ account, autoNav }: MyItemProps, ref) {
             }}
             onMouseDown={(e) => {
               setOptionsVisible(false);
-            }}></div>
+            }}
+          ></div>
         )}
 
         <Icon
           onClick={async (e) => {
             setOptionsVisible(!optionsVisible);
-          }}>
+          }}
+        >
           <EllipsisOutlined />
         </Icon>
 
@@ -108,11 +112,13 @@ export function MyItem({ account, autoNav }: MyItemProps, ref) {
               right: 0,
               padding: 5,
               zIndex: 10
-            }}>
+            }}
+          >
             <Row
               onClick={() => {
                 navigate('EditAccountNameScreen', { account });
-              }}>
+              }}
+            >
               <EditOutlined />
               <Text text="Edit Name" size="sm" />
             </Row>
@@ -121,7 +127,8 @@ export function MyItem({ account, autoNav }: MyItemProps, ref) {
                 copyToClipboard(account.address);
                 tools.toastSuccess('copied');
                 setOptionsVisible(false);
-              }}>
+              }}
+            >
               <CopyOutlined />
               <Text text="Copy address" size="sm" />
             </Row>
@@ -129,7 +136,8 @@ export function MyItem({ account, autoNav }: MyItemProps, ref) {
               <Row
                 onClick={() => {
                   navigate('ExportPrivateKeyScreen', { account });
-                }}>
+                }}
+              >
                 <KeyOutlined />
                 <Text text="Export Private Key" size="sm" />
               </Row>
@@ -191,7 +199,8 @@ export default function SwitchAccountScreen() {
             <Icon
               onClick={() => {
                 navigate('CreateAccountScreen');
-              }}>
+              }}
+            >
               <PlusCircleOutlined />
             </Icon>
           )
@@ -204,7 +213,8 @@ export default function SwitchAccountScreen() {
           height={layoutHeight}
           itemHeight={ITEM_HEIGHT}
           itemKey={(item) => item.key}
-          ref={refList}>
+          ref={refList}
+        >
           {(item, index) => <ForwardMyItem account={item.account} autoNav={true} />}
         </VirtualList>
       </Content>

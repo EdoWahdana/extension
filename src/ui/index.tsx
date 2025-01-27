@@ -161,7 +161,8 @@ root.render(
             <IdleTimerProvider
               onAction={() => {
                 wallet.setLastActiveTime();
-              }}>
+              }}
+            >
               <Updaters />
               <AsyncMainRoute />
             </IdleTimerProvider>

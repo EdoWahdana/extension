@@ -42,7 +42,8 @@ export function MergeProgressLayout({
             text="Start"
             onClick={(e) => {
               onContinue();
-            }}></Button>
+            }}
+          ></Button>
         )}
 
         {mergeState == MergeState.Running && (
@@ -52,7 +53,8 @@ export function MergeProgressLayout({
             text="Merging..."
             onClick={(e) => {
               // onContinue();
-            }}></Button>
+            }}
+          ></Button>
         )}
 
         {mergeState == MergeState.Paused && (
@@ -61,7 +63,8 @@ export function MergeProgressLayout({
             text="Quit Merging Process"
             onClick={(e) => {
               window.history.go(-1);
-            }}></Button>
+            }}
+          ></Button>
         )}
 
         {mergeState == MergeState.Done && (
@@ -70,7 +73,8 @@ export function MergeProgressLayout({
             text="Done"
             onClick={(e) => {
               window.history.go(-1);
-            }}></Button>
+            }}
+          ></Button>
         )}
       </Content>
     </Layout>

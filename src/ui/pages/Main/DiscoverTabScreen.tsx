@@ -23,7 +23,8 @@ function BannerItem({ img, link }: { img: string; link: string }) {
       justifyCenter
       onClick={() => {
         window.open(link);
-      }}>
+      }}
+    >
       <Image
         src={img}
         width={'100%'}
@@ -48,7 +49,8 @@ function AppItem({ info }: { info: AppInfo }) {
       onClick={() => {
         if (info.url) window.open(info.url);
         readApp(info.id);
-      }}>
+      }}
+    >
       <Row full>
         <Column justifyCenter>
           <Image src={info.logo} size={48} />
@@ -65,7 +67,8 @@ function AppItem({ info }: { info: AppInfo }) {
             overlayStyle={{
               fontSize: '10px',
               lineHeight: '14px'
-            }}>
+            }}
+          >
             <div>
               <Text text={info.desc} preset="sub" max2Lines />
             </div>

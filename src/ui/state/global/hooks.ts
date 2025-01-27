@@ -84,7 +84,15 @@ export function useImportAccountsFromKeystoneCallback() {
       filterPubkey?: string[],
       connectionType: 'USB' | 'QR' = 'USB'
     ) => {
-      await wallet.createKeyringWithKeystone(urType, urCbor, addressType, hdPath, accountCount, filterPubkey, connectionType);
+      await wallet.createKeyringWithKeystone(
+        urType,
+        urCbor,
+        addressType,
+        hdPath,
+        accountCount,
+        filterPubkey,
+        connectionType
+      );
       dispatch(globalActions.update({ isUnlocked: true }));
     },
     [dispatch, wallet]

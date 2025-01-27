@@ -36,7 +36,8 @@ function HeaderContainer(props: { children: React.ReactNode }) {
           height: '67.5px',
           paddingLeft: spacing.large,
           paddingRight: spacing.large
-        }}>
+        }}
+      >
         {props.children}
       </Row>
     </div>
@@ -81,7 +82,8 @@ export function Header(props: HeaderProps) {
             <Row
               onClick={(e) => {
                 onBack();
-              }}>
+              }}
+            >
               <Icon>
                 <FontAwesomeIcon icon={faArrowLeft} />
               </Icon>

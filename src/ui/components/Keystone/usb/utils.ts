@@ -16,14 +16,13 @@ export async function createKeystoneTransport() {
   return transport;
 }
 
-
 export function handleKeystoneUSBError(error) {
-  if (error.message === "USB_PERMISSIONS_NOT_AVAILABLE") {
+  if (error.message === 'USB_PERMISSIONS_NOT_AVAILABLE') {
     return 'Missing browser permissions, please grant Keystone permissions';
   }
 
   if (error.transportErrorCode === StatusCode.PRS_PARSING_REJECTED) {
-    return `Request was Rejected. To Proceed,please reauthorize`;
+    return 'Request was Rejected. To Proceed,please reauthorize';
   }
   if (error.transportErrorCode === StatusCode.PRS_PARSING_DISALLOWED) {
     return 'Please reconnect the Keystone on home screen and reauthorize.';

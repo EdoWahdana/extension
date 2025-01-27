@@ -299,7 +299,8 @@ export default function SendCAT20Screen() {
               itemsCenter
               onClick={() => {
                 setInputAmount(runesUtils.toDecimalAmount(availableTokenAmount, cat20Balance.decimals));
-              }}>
+              }}
+            >
               <Text text="MAX" preset="sub" style={{ color: colors.white_muted }} />
               <Text
                 text={`${showLongNumber(runesUtils.toDecimalAmount(availableTokenAmount, cat20Balance.decimals))}`}
@@ -363,7 +364,8 @@ export default function SendCAT20Screen() {
           text="Next"
           onClick={(e) => {
             onConfirm();
-          }}></Button>
+          }}
+        ></Button>
 
         {showMergeBTCUTXOPopover && (
           <MergeBTCPopover

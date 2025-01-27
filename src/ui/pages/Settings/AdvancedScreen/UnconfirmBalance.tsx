@@ -39,7 +39,9 @@ export function UnconfirmedBalanceCard() {
           <Text
             preset="sub"
             size="sm"
-            text={`To protect your assets, only confirmed balances are spendable when holding Runes (or ARC-20) assets. This is to prevent accidental asset burning.`}
+            text={
+              'To protect your assets, only confirmed balances are spendable when holding Runes (or ARC-20) assets. This is to prevent accidental asset burning.'
+            }
           />
         </Row>
         <Row style={{ borderTopWidth: 1, borderColor: colors.border }} my="md" />
@@ -47,9 +49,9 @@ export function UnconfirmedBalanceCard() {
         <Row justifyBetween>
           <Column fullX gap="zero">
             {enableUnconfirmed ? (
-              <Text text={`Mandatory use of unconfirmed balance `} size="xs" />
+              <Text text={'Mandatory use of unconfirmed balance '} size="xs" />
             ) : (
-              <Text text={`Mandatory use of unconfirmed balance`} size="xs" />
+              <Text text={'Mandatory use of unconfirmed balance'} size="xs" />
             )}
             <Text text={`Only applies to current address (${shortAddress(currentAccount.address)})`} preset="sub" />
           </Column>
@@ -65,7 +67,8 @@ export function UnconfirmedBalanceCard() {
                 setUnconfirmedPopoverVisible(true);
               }
             }}
-            checked={enableUnconfirmed}></Switch>
+            checked={enableUnconfirmed}
+          ></Switch>
         </Row>
       </Column>
 

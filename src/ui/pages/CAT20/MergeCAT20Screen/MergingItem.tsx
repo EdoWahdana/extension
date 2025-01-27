@@ -29,7 +29,8 @@ export function MergingItem({ item }: { item: MergeItem }) {
             gap="zero"
             onClick={() => {
               window.open(`${txidUrl}`);
-            }}>
+            }}
+          >
             <Text text={`${shortAddress(item.txid) || '--'}`} preset="sub" color="txid_color" mx="sm" />
             <Icon icon="link" color="txid_color" />
             {/* {item.feeRate && <Text text={` ( Fee Rate: ${item.feeRate} sats/vB) `} color="txid_color" size="xs" />} */}

@@ -30,7 +30,8 @@ export default function TxSuccessScreen() {
             justifyCenter
             onClick={() => {
               window.open(`${txidUrl}`);
-            }}>
+            }}
+          >
             <Icon icon="eye" color="textDim" />
             <Text preset="regular-bold" text="View on Block Explorer" color="textDim" />
           </Row>

@@ -258,7 +258,8 @@ function SignTxDetails({
                 borderRadius: 10,
                 borderWidth: 1,
                 borderColor: colors.border
-              }}>
+              }}
+            >
               <Row>
                 <AssetTag type="Inscription" />
               </Row>
@@ -292,7 +293,8 @@ function SignTxDetails({
                 borderRadius: 10,
                 borderWidth: 1,
                 borderColor: colors.border
-              }}>
+              }}
+            >
               <Row>
                 <AssetTag type="ARC20" />
               </Row>
@@ -316,7 +318,8 @@ function SignTxDetails({
                 borderRadius: 10,
                 borderWidth: 1,
                 borderColor: colors.border
-              }}>
+              }}
+            >
               <Row>
                 <AssetTag type="BRC20" />
               </Row>
@@ -354,7 +357,8 @@ function SignTxDetails({
                 borderRadius: 10,
                 borderWidth: 1,
                 borderColor: colors.border
-              }}>
+              }}
+            >
               <Row>
                 <AssetTag type="RUNES" />
               </Row>
@@ -855,7 +859,8 @@ export default function SignPsbt({
                   }
                   overlayStyle={{
                     fontSize: fontSizes.xs
-                  }}>
+                  }}
+                >
                   <div>
                     <Row>
                       <Text text={txInfo.decodedPsbt.feeRate.toString()} />
@@ -901,7 +906,8 @@ export default function SignPsbt({
                         <Row
                           key={'output_' + index}
                           style={index === 0 ? {} : { borderColor: colors.border, borderTopWidth: 1, paddingTop: 10 }}
-                          itemsCenter>
+                          itemsCenter
+                        >
                           <Column fullX>
                             <Row fullX justifyBetween>
                               <Column>
@@ -1017,7 +1023,8 @@ export default function SignPsbt({
                       return (
                         <Column
                           key={'output_' + index}
-                          style={index === 0 ? {} : { borderColor: colors.border, borderTopWidth: 1, paddingTop: 10 }}>
+                          style={index === 0 ? {} : { borderColor: colors.border, borderTopWidth: 1, paddingTop: 10 }}
+                        >
                           <Column>
                             <Row justifyBetween>
                               <AddressText address={v.address} color={isMyAddress ? 'white' : 'textDim'} />
@@ -1121,7 +1128,8 @@ export default function SignPsbt({
                 copyToClipboard(txInfo.psbtHex).then(() => {
                   tools.toastSuccess('Copied');
                 });
-              }}>
+              }}
+            >
               <Text text={`${txInfo.psbtHex.length / 2} bytes`} color="textDim" />
               <Icon icon="copy" color="textDim" />
             </Row>

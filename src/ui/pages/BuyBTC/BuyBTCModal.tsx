@@ -88,7 +88,8 @@ export const BuyBTCModal = ({ onClose }: { onClose: () => void }) => {
           <Row
             onClick={() => {
               onClose();
-            }}>
+            }}
+          >
             <CloseOutlined />
           </Row>
         </Row>
@@ -100,7 +101,7 @@ export const BuyBTCModal = ({ onClose }: { onClose: () => void }) => {
           {!channels ? (
             <Skeleton active />
           ) : channels.length <= 0 ? (
-            <Text size="sm" color="textDim" text={`No service provider available.`} />
+            <Text size="sm" color="textDim" text={'No service provider available.'} />
           ) : (
             channels.map((channel, index) => (
               <PaymentItem

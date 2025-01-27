@@ -110,7 +110,8 @@ export default function CAT721CollectionScreen() {
                   style={{
                     backgroundColor: colors.border,
                     height: 1
-                  }}></Row>
+                  }}
+                ></Row>
               ) : null}
 
               {collectionSummary.collectionInfo.description ? (

@@ -30,7 +30,8 @@ export function Section({
       px="md"
       style={{
         minHeight: 25
-      }}>
+      }}
+    >
       <Text text={title} preset="sub" />
       <Row
         onClick={() => {
@@ -41,7 +42,8 @@ export function Section({
               tools.toastSuccess('Copied');
             });
           }
-        }}>
+        }}
+      >
         <Text text={displayText} preset={link ? 'link' : 'regular'} size="xs" wrap />
         {showCopyIcon && <CopyOutlined style={{ color: '#888', fontSize: 14 }} />}
       </Row>

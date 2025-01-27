@@ -38,7 +38,8 @@ export function EnableAtomicalsCard() {
                 reloadAccounts();
               }
             }}
-            checked={isEnableAtomicals}></Switch>
+            checked={isEnableAtomicals}
+          ></Switch>
         </Row>
       </Column>
 

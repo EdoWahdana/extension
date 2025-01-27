@@ -23,7 +23,8 @@ function WalletItem(props: { walletType: HardwareWalletType; onClick?: () => voi
         } else {
           props.onClick && props.onClick();
         }
-      }}>
+      }}
+    >
       <Row fullX>
         <Row itemsCenter>
           <Image src={walletInfo.img} size={30} />
@@ -49,7 +50,8 @@ export const ConnectHardwareModal = ({ onClose }: { onClose: () => void }) => {
           <Row
             onClick={() => {
               onClose();
-            }}>
+            }}
+          >
             <CloseOutlined />
           </Row>
         </Row>
@@ -60,7 +62,7 @@ export const ConnectHardwareModal = ({ onClose }: { onClose: () => void }) => {
           <Text
             size="sm"
             color="textDim"
-            text={`The hardware wallet feature is experimental. Use it with caution as potential issues may arise`}
+            text={'The hardware wallet feature is experimental. Use it with caution as potential issues may arise'}
           />
 
           <WalletItem

@@ -24,7 +24,8 @@ export function LockTimeCard() {
         }}
         justifyCenter
         itemsCenter
-        full>
+        full
+      >
         <Column>
           <Icon size={16} icon="overview"></Icon>
         </Column>
@@ -75,7 +76,8 @@ function LockTimePopover({ onNext, onCancel }: { onNext: () => void; onCancel: (
                 backgroundColor: 'rgba(255,255,255,0.01)',
                 borderBottomColor: colors.transparent,
                 borderBottomWidth: 0.2
-              }}>
+              }}
+            >
               <Row
                 onClick={async () => {
                   const lockTimeId = v.id;
@@ -85,7 +87,8 @@ function LockTimePopover({ onNext, onCancel }: { onNext: () => void; onCancel: (
                   onNext();
                 }}
                 itemsCenter
-                full>
+                full
+              >
                 <Column>
                   <Text color={check ? 'white' : 'textDim'} size="sm" text={v.label}></Text>
                 </Column>

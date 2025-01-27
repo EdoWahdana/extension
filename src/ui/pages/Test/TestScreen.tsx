@@ -75,7 +75,8 @@ function TestButton() {
     <Card
       onClick={() => {
         //tpdp
-      }}>
+      }}
+    >
       <Text text="HELLO" />
       <Text text="WORLD" />
     </Card>

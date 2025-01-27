@@ -1,21 +1,18 @@
-import { ContextData, TabType, UpdateContextDataParams } from '@/ui/pages/Account/createHDWalletComponents/types';
-import { Button, Card, Column, Grid, Icon, Row, Text } from '@/ui/components';
-import { Checkbox } from 'antd';
-import { fontSizes } from '@/ui/theme/font';
-import { FooterButtonContainer } from '@/ui/components/FooterButtonContainer';
 import { useState } from 'react';
 
+import { Button, Card, Column, Grid, Row, Text } from '@/ui/components';
+import { FooterButtonContainer } from '@/ui/components/FooterButtonContainer';
+import { ContextData, TabType, UpdateContextDataParams } from '@/ui/pages/Account/createHDWalletComponents/types';
+
 export function Step1_Confirm({
-                                contextData,
-                                updateContextData
-                              }: {
+  contextData,
+  updateContextData
+}: {
   contextData: ContextData;
   updateContextData: (params: UpdateContextDataParams) => void;
 }) {
-
   const [checked, setChecked] = useState(true);
   const words = contextData.mnemonics.split(' ');
-
 
   const btnClick = () => {
     updateContextData({

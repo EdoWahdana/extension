@@ -259,7 +259,8 @@ export default function MergeCAT20Screen() {
               borderRadius: 10,
               borderColor: '#F4B62C59',
               backgroundColor: 'rgba(244, 182, 44, 0.08)'
-            }}>
+            }}
+          >
             <Column mx="md" my="md">
               <Text
                 text={'This feature is currently in the experimental test phase. Please proceed with caution.'}
@@ -294,7 +295,7 @@ export default function MergeCAT20Screen() {
           </Row>
 
           <Row itemsCenter>
-            <Text text={`set UTXO amount to be merged`} preset="regular" color="textDim" />
+            <Text text={'set UTXO amount to be merged'} preset="regular" color="textDim" />
           </Row>
         </Column>
 
@@ -415,7 +416,8 @@ export default function MergeCAT20Screen() {
           text="Start Merging"
           onClick={(e) => {
             onPrepare();
-          }}></Button>
+          }}
+        ></Button>
 
         {showMergeBTCUTXOPopover && (
           <MergeBTCPopover

@@ -115,7 +115,8 @@ export default function OrdinalsInscriptionScreen() {
             style={{
               backgroundColor: 'rgba(255,255,255,0.08)',
               borderRadius: 15
-            }}>
+            }}
+          >
             <Section title="id" value={inscription.inscriptionId} />
             <Line />
             <Section title="address" value={inscription.address} />

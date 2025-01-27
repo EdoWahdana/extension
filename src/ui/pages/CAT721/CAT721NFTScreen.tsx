@@ -24,7 +24,8 @@ export default function CAT721NFTScreen() {
       <Header
         onBack={() => {
           window.history.go(-1);
-        }}>
+        }}
+      >
         <Row>
           <Text text={`${collectionInfo.name} `} />
           <Text text={`#${localId}`} color="gold" />
@@ -56,7 +57,8 @@ export default function CAT721NFTScreen() {
               collectionInfo: collectionInfo,
               localId: localId
             });
-          }}></Button>
+          }}
+        ></Button>
       </Content>
     </Layout>
   );

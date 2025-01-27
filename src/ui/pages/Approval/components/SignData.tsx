@@ -113,7 +113,8 @@ export default function SignData({ params: { data, session } }: Props) {
                 whiteSpace: 'pre-wrap',
                 wordBreak: 'break-word',
                 flexWrap: 'wrap'
-              }}>
+              }}
+            >
               {data.data}
             </div>
           </Card>
@@ -134,7 +135,8 @@ export default function SignData({ params: { data, session } }: Props) {
               copyToClipboard(AGREEMENT_TEXT).then(() => {
                 tools.toastSuccess('Copied');
               });
-            }}>
+            }}
+          >
             <Text text={`Enter “${AGREEMENT_TEXT}” to continue`} preset="bold" />
             <Icon icon="copy" color="textDim" />
           </Row>

@@ -75,8 +75,12 @@ export function useSupportedAssets() {
     ordinals: false,
     atomicals: false,
     runes: false,
-    CAT20: false
+    CAT20: false,
+    glittr: false
   };
+
+  assets.glittr = true;
+  assetTabKeys.push(AssetTabKey.GLITTR);
 
   assets.ordinals = true;
   assetTabKeys.push(AssetTabKey.ORDINALS);

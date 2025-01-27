@@ -1,21 +1,20 @@
+import { Radio } from 'antd';
+import * as bip39 from 'bip39';
+import { useEffect, useMemo, useState } from 'react';
+
+import { OW_HD_PATH } from '@/shared/constant';
+import { AddressType, RestoreWalletType } from '@/shared/types';
+import { Button, Card, Column, Grid, Input, Row, Text } from '@/ui/components';
+import { useTools } from '@/ui/components/ActionComponent';
+import { FooterButtonContainer } from '@/ui/components/FooterButtonContainer';
 import {
   ContextData,
   TabType,
   UpdateContextDataParams,
   WordsType
 } from '@/ui/pages/Account/createHDWalletComponents/types';
-import { useEffect, useMemo, useState } from 'react';
-import { AddressType, RestoreWalletType } from '@/shared/types';
-import * as bip39 from 'bip39';
-import { useCreateAccountCallback } from '@/ui/state/global/hooks';
 import { useNavigate } from '@/ui/pages/MainRoute';
-import { useTools } from '@/ui/components/ActionComponent';
-import { OW_HD_PATH } from '@/shared/constant';
-import { Button, Card, Column, Grid, Input, Row, Text } from '@/ui/components';
-import { Radio } from 'antd';
-import { FooterButtonContainer } from '@/ui/components/FooterButtonContainer';
-
-
+import { useCreateAccountCallback } from '@/ui/state/global/hooks';
 
 const WORDS_12_ITEM = {
   key: WordsType.WORDS_12,
@@ -29,11 +28,10 @@ const WORDS_24_ITEM = {
   count: 24
 };
 
-
 export function Step1_Import({
-                        contextData,
-                        updateContextData
-                      }: {
+  contextData,
+  updateContextData
+}: {
   contextData: ContextData;
   updateContextData: (params: UpdateContextDataParams) => void;
 }) {
@@ -134,7 +132,8 @@ export function Step1_Import({
               updateContextData({ wordsType });
               setKeys(new Array(wordsItems[wordsType].count).fill(''));
             }}
-            value={contextData.wordsType}>
+            value={contextData.wordsType}
+          >
             {wordsItems.map((v) => (
               <Radio key={v.key} value={v.key}>
                 {v.label}

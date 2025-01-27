@@ -52,7 +52,10 @@ export default function SendArc20Screen() {
     tools.showLoading(true);
     fetchAssetUtxosAtomicalsFT(arc20Balance.ticker)
       .then((utxos) => {
-        const available = utxos.reduce((pre, cur) => pre + cur.atomicals.reduce((p, c) => p + (c?.atomicalValue || 0), 0), 0);
+        const available = utxos.reduce(
+          (pre, cur) => pre + cur.atomicals.reduce((p, c) => p + (c?.atomicalValue || 0), 0),
+          0
+        );
         setArc20AvailableBalance(available);
       })
       .finally(() => {
@@ -133,8 +136,12 @@ export default function SendArc20Screen() {
       />
       <Content>
         <Row justifyCenter>
-          <Text text={`${showLongNumber(arc20Balance.balance)} ${arc20Balance.ticker}`} preset="bold" textCenter
-                size="xxl" />
+          <Text
+            text={`${showLongNumber(arc20Balance.balance)} ${arc20Balance.ticker}`}
+            preset="bold"
+            textCenter
+            size="xxl"
+          />
         </Row>
 
         <Column mt="lg">
@@ -156,7 +163,8 @@ export default function SendArc20Screen() {
               itemsCenter
               onClick={() => {
                 setInputAmount(arc20AvailableBalance.toString());
-              }}>
+              }}
+            >
               <Text text="MAX" preset="sub" style={{ color: colors.white_muted }} />
               <Text text={`${showLongNumber(arc20AvailableBalance)} ${arc20Balance.ticker}`} preset="bold" size="sm" />
             </Row>
@@ -197,7 +205,8 @@ export default function SendArc20Screen() {
           text="Next"
           onClick={(e) => {
             navigate('TxConfirmScreen', { rawTxInfo });
-          }}></Button>
+          }}
+        ></Button>
       </Content>
     </Layout>
   );

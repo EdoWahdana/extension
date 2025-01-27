@@ -90,7 +90,8 @@ export default function CAT721Preview({ collectionId, contentType, localId, onCl
         style={{
           borderBottomLeftRadius: style.borderTopLeftRadius,
           borderBottomRightRadius: style.borderTopRightRadius
-        }}>
+        }}
+      >
         <Row my="sm">
           <Text text={'Local Id:'} color="textDim" size={style.textSize} />
 

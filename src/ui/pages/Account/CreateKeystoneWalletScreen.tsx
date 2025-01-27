@@ -13,7 +13,6 @@ import KeystoneScan from '@/ui/components/Keystone/Scan';
 import KeystoneProductImg from '@/ui/components/Keystone/imgs/keystone-product.png';
 import KeystoneFetchKey from '@/ui/components/Keystone/usb/FetchKey';
 import { useImportAccountsFromKeystoneCallback } from '@/ui/state/global/hooks';
-
 import { colors } from '@/ui/theme/colors';
 import { useWallet } from '@/ui/utils';
 import { ScanOutlined, UsbOutlined } from '@ant-design/icons';
@@ -157,10 +156,13 @@ function StepTwoUSB({ onBack, onNext }) {
   );
   return (
     <Layout>
-      <Header title="Connect Keystone via USB" onBack={() => {
-        setIsCancelled(true);
-        onBack();
-      }} />
+      <Header
+        title="Connect Keystone via USB"
+        onBack={() => {
+          setIsCancelled(true);
+          onBack();
+        }}
+      />
       <Content>
         <Column justifyCenter itemsCenter>
           <KeystoneLogoWithText width={160} />
@@ -220,7 +222,15 @@ function Step3({
         );
       } else {
         await wallet.getKeyrings();
-        await importAccounts(contextData.ur.type, contextData.ur.cbor, addressType, 1, contextData.customHdPath, undefined, contextData.connectionType);
+        await importAccounts(
+          contextData.ur.type,
+          contextData.ur.cbor,
+          addressType,
+          1,
+          contextData.customHdPath,
+          undefined,
+          contextData.connectionType
+        );
       }
     } catch (e) {
       setError((e as any).message);
@@ -488,18 +498,23 @@ export default function CreateKeystoneWalletScreen() {
   }
   if (step === 2) {
     if (isUSB) {
-      return <StepTwoUSB onBack={() => setStep(1)} onNext={({ type, cbor }) => {
-        setStep(3);
-        updateContextData({
-          ur: {
-            type,
-            cbor
-          },
-          passphrase: '',
-          customHdPath: '',
-          connectionType: 'USB'
-        });
-      }} />;
+      return (
+        <StepTwoUSB
+          onBack={() => setStep(1)}
+          onNext={({ type, cbor }) => {
+            setStep(3);
+            updateContextData({
+              ur: {
+                type,
+                cbor
+              },
+              passphrase: '',
+              customHdPath: '',
+              connectionType: 'USB'
+            });
+          }}
+        />
+      );
     }
     return (
       <Step2

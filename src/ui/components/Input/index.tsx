@@ -343,7 +343,7 @@ export const AddressInput = (props: InputProps) => {
             color="yellow"
             text={'More details'}
             onClick={() => {
-              window.open(`https://docs.unisat.io/unisat-wallet/name-recognized-and-resolved`);
+              window.open('https://docs.unisat.io/unisat-wallet/name-recognized-and-resolved');
             }}
           />
           <Text preset="sub" size="sm" text={')'} />
@@ -360,7 +360,8 @@ export const AddressInput = (props: InputProps) => {
             borderRadius: 12,
             border: '1px solid rgba(245, 84, 84, 0.35)',
             background: 'rgba(245, 84, 84, 0.08)'
-          }}>
+          }}
+        >
           <Text text={addressTip} preset="regular" color="warning" />
         </Column>
       )}
@@ -384,7 +385,8 @@ function SearchInput(props: InputProps) {
           alignSelf: 'stretch'
         },
         containerStyle
-      )}>
+      )}
+    >
       <Row py={'md'} px={'lg'} full itemsCenter>
         <SearchOutlined style={{ color: '#888' }} />
         <input
@@ -406,7 +408,8 @@ function SearchInput(props: InputProps) {
           height: 42.5,
           width: 42.5,
           borderLeft: '1px solid #C08F23'
-        }}>
+        }}
+      >
         <ArrowRightOutlined style={{ color: 'rgba(255,255,255,.85)' }} />
       </Row>
     </Row>

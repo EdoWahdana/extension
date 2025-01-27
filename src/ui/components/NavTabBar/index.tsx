@@ -33,7 +33,8 @@ function TabButton({ tabName, icon, isActive }: { tabName: TabOption; icon: Icon
         } else if (tabName === 'settings') {
           navigate('SettingsTabScreen');
         }
-      }}>
+      }}
+    >
       <Icon size={20} icon={icon} color={isActive ? 'white' : 'white_muted'} />
       <BaseView style={{ position: 'relative' }}>
         {tabName === 'discover' && unreadApp && (
@@ -46,7 +47,8 @@ function TabButton({ tabName, icon, isActive }: { tabName: TabOption; icon: Icon
               height: 5,
               backgroundColor: 'red',
               borderRadius: '50%'
-            }}></BaseView>
+            }}
+          ></BaseView>
         )}
       </BaseView>
     </Column>

@@ -204,7 +204,8 @@ export default function CAT20TokenScreen() {
             style={{
               backgroundColor: 'rgba(255,255,255,0.08)',
               borderRadius: 15
-            }}>
+            }}
+          >
             <Section title="token_id" value={tokenSummary.cat20Info.tokenId} link={tokenUrl} />
             <Line />
             <Section title="name" value={tokenSummary.cat20Info.name} />

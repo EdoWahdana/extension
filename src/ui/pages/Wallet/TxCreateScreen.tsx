@@ -118,15 +118,15 @@ export default function TxCreateScreen() {
   const unavailableTipText = useMemo(() => {
     let tipText = '';
     if (chain.enum === ChainType.BITCOIN_MAINNET) {
-      tipText += `Includes Inscriptions, ARC20, Runes, and unconfirmed UTXO assets.`;
+      tipText += 'Includes Inscriptions, ARC20, Runes, and unconfirmed UTXO assets.';
     } else {
-      tipText += `Includes Inscriptions, Runes, and unconfirmed UTXO assets.`;
+      tipText += 'Includes Inscriptions, Runes, and unconfirmed UTXO assets.';
     }
 
     if (walletConfig.disableUtxoTools) {
-      tipText += ` Future versions will support spending these assets.`;
+      tipText += ' Future versions will support spending these assets.';
     } else {
-      tipText += ` You can unlock these assets by using the UTXO tools.`;
+      tipText += ' You can unlock these assets by using the UTXO tools.';
     }
     return tipText;
   }, [chain.enum]);
@@ -182,14 +182,16 @@ export default function TxCreateScreen() {
             style={{
               flexDirection: 'column',
               borderRadius: 8
-            }}>
+            }}
+          >
             <Row
               justifyBetween
               fullX
               itemsCenter
               style={{
                 minHeight: 30
-              }}>
+              }}
+            >
               <Text text="Available" color="gold" />
               <Row>
                 <Text text={`${availableAmount}`} size="sm" color="gold" />
@@ -203,7 +205,8 @@ export default function TxCreateScreen() {
                   width: '100%',
                   border: '1px dashed',
                   borderColor: colors.line
-                }}></Row>
+                }}
+              ></Row>
             ) : null}
 
             {showUnavailable ? (
@@ -213,12 +216,14 @@ export default function TxCreateScreen() {
                 itemsCenter
                 style={{
                   minHeight: 30
-                }}>
+                }}
+              >
                 <Tooltip
                   title={unavailableTipText}
                   overlayStyle={{
                     fontSize: fontSizes.xs
-                  }}>
+                  }}
+                >
                   <div style={{ display: 'flex', alignItems: 'center' }}>
                     <Row itemsCenter>
                       <Text text="Unavailable" />
@@ -274,7 +279,8 @@ export default function TxCreateScreen() {
           text="Next"
           onClick={(e) => {
             navigate('TxConfirmScreen', { rawTxInfo });
-          }}></Button>
+          }}
+        ></Button>
       </Content>
     </Layout>
   );

@@ -16,7 +16,7 @@ export interface RunesBalanceCardProps {
   price?: TickPriceItem;
 }
 
-export default function RunesBalanceCard(props: RunesBalanceCardProps) {
+export default function GlittrBalanceCard(props: RunesBalanceCardProps) {
   const { tokenBalance, onClick, showPrice, price } = props;
   const balance = runesUtils.toDecimalNumber(tokenBalance.amount, tokenBalance.divisibility);
   let str = balance.toString();
